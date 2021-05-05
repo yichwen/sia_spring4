@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/aop
+            http://www.springframework.org/schema/aop/spring-aop-3.2.xsd
+            http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="knight" class="com.sia.knights.BraveKnight">
+        <constructor-arg ref="quest" />
+    </bean>
+    <bean id="quest" class="com.sia.knights.SlayDragonQuest">
+        <constructor-arg value="#{T(System).out}" />
+    </bean>
+    <!-- declare minstrel bean -->
+    <bean id="minstrel" class="com.sia.knights.Minstrel">
+        <constructor-arg value="#{T(System).out}" />
+    </bean>
+    <aop:config>
+        <aop:aspect ref="minstrel">
+            <!-- define pointcut -->
+            <!-- expression set to select where the advice should be applied -->
+            <!-- The expression syntax is AspectJ’s pointcut expression language -->
+            <aop:pointcut id="embark" expression="execution(* *.embarkOnQuest(..))"/>
+            <!-- declare before advice -->
+            <aop:before pointcut-ref="embark" method="singBeforeQuest"/>
+            <!-- declare after advice -->
+            <!-- pointcut-ref refers to a pointcut named embark -->
+            <aop:after pointcut-ref="embark" method="singAfterQuest"/>
+        </aop:aspect>
+    </aop:config>
+
+</beans>

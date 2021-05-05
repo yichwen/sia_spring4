@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- For lack of an explicitly given ID, the bean will be named according to the fully qualified class name -->
+    <!-- the bean’s ID will be soundsystem.SgtPeppers#0 -->
+    <!-- The #0 is an enumeration used to differentiate this bean from any other bean of the same type -->
+    <!-- <bean class="com.sia.soundsystem.xmlconfig.SgtPeppers" /> -->
+    <bean id="compactDisc" class="com.sia.soundsystem.xmlconfig.SgtPeppers" />
+
+
+<!--    <bean id="cdPlayer" class="com.sia.soundsystem.xmlconfig.CDPlayer">-->
+<!--        <constructor-arg ref="compactDisc" />-->
+<!--    </bean>-->
+    <!-- cd-ref where cd is the constructor argument name and -ref is injecting a bean reference -->
+    <bean id="cdPlayer" class="com.sia.soundsystem.xmlconfig.CDPlayer" c:cd-ref="blankDisc" />
+    <!-- we can refer to the parameter's position in parameter list -->
+<!--    <bean id="cdPlayer" class="com.sia.soundsystem.xmlconfig.CDPlayer" c:0-ref="compactDisc" />-->
+
+
+<!--    <bean id="blankDisc" class="com.sia.soundsystem.xmlconfig.BlankDisc">-->
+<!--        <constructor-arg value="Sgt. Pepper's Lonely Hearts Club Band" />-->
+<!--        <constructor-arg value="The Beatles" />-->
+<!--    </bean>-->
+    <bean id="blankDisc" class="com.sia.soundsystem.xmlconfig.BlankDisc"
+          c:_0="Sgt. Pepper's Lonely Hearts Club Band"
+          c:_1="The Beatles" />
+
+</beans>
