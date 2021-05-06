@@ -17,10 +17,10 @@ public class SpittleRepositoryImpl implements SpittleRepository {
         return spittles;
     }
 
-//    @Override
-//    public Spittle findOne(long id) {
-//        return spittles.stream().filter(s -> s.getId() == id).findFirst().orElse(new Spittle("Unknown spittle", new Date()));
-//    }
+    @Override
+    public Spittle findOne(long id) {
+        return spittles.stream().filter(s -> s.getId() == id).findFirst().orElse(new Spittle("Unknown spittle", new Date()));
+    }
 
     private List<Spittle> createSpittleList(int count) {
         List<Spittle> spittles = new ArrayList<>();
