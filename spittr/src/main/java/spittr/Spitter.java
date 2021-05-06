@@ -12,23 +12,23 @@ public class Spitter {
     private Long id;
 
     @NotNull
-    @Size(min = 5, max = 16, message = "size must be between 5 and 16")
+    @Size(min = 5, max = 16, message = "{username.size}")
     private String username;
 
     @NotNull
-    @Size(min = 5, max = 25, message = "size must be between 5 and 25")
+    @Size(min = 5, max = 25, message = "{password.size}")
     private String password;
 
     @NotNull
-    @Size(min = 2, max = 30, message = "size must be between 2 and 30")
+    @Size(min = 2, max = 30, message = "{firstName.size}")
     private String firstName;
 
     @NotNull
-    @Size(min = 2, max = 30, message = "size must be between 2 and 30")
+    @Size(min = 2, max = 30, message = "{lastName.size}")
     private String lastName;
 
     @NotNull
-    @Email(message = "email is invalid")
+    @Email(message = "{email.valid}")
     private String email;
 
     public Spitter() {

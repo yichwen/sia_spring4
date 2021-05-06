@@ -11,20 +11,28 @@
     <%-- commandName here is required controller model returns with key "spitter" --%>
     <sf:form method="POST" commandName="spitter">
 
-        First Name: <sf:input path="firstName" />
-        <sf:errors path="firstName" cssClass="error" /><br/>
+        <%-- gather error list --%>
+        <sf:errors path="*" element="div" cssClass="errors" />
 
-        Last Name: <sf:input path="lastName" />
-        <sf:errors path="lastName" cssClass="error" /><br/>
+        <sf:label path="firstName" cssErrorClass="error">First Name: </sf:label>
+        <sf:input path="firstName" cssErrorClass="error" />
+        <br/>
 
-        Username: <sf:input path="username" />
-        <sf:errors path="username" cssClass="error" /><br/>
+        <sf:label path="lastName" cssErrorClass="error">Last Name: </sf:label>
+        <sf:input path="lastName" cssErrorClass="error" />
+        <br/>
 
-        Password: <sf:input path="password" type="password" />
-        <sf:errors path="password" cssClass="error" /><br/>
+        <sf:label path="username" cssErrorClass="error">Username: </sf:label>
+        <sf:input path="username" cssErrorClass="error" />
+        <br/>
 
-        Email: <sf:input path="email" />
-        <sf:errors path="email" cssClass="error" /><br/>
+        <sf:label path="password" cssErrorClass="error">Password: </sf:label>
+        <sf:input path="password" type="password" cssErrorClass="error" />
+        <br/>
+
+        <sf:label path="email" cssErrorClass="error">Email: </sf:label>
+        <sf:input path="email" cssErrorClass="error" />
+        <br/>
 
         <input type="submit" value="Register" /><br/>
 
