@@ -12,6 +12,7 @@
     <modules>
         <module>knight</module>
         <module>soundsystem</module>
+        <module>spittr</module>
     </modules>
 
     <properties>
