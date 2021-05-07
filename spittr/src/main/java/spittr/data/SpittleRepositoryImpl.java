@@ -13,13 +13,19 @@ public class SpittleRepositoryImpl implements SpittleRepository {
     private List<Spittle> spittles = createSpittleList(20);
 
     @Override
+    public void save(Spittle spittle) {
+        this.spittles.add(spittle);
+    }
+
+    @Override
     public List<Spittle> findSpittles(long max, int count) {
         return spittles;
     }
 
     @Override
     public Spittle findOne(long id) {
-        return spittles.stream().filter(s -> s.getId() == id).findFirst().orElse(new Spittle("Unknown spittle", new Date()));
+//        return spittles.stream().filter(s -> s.getId() == id).findFirst().orElse(new Spittle("Unknown spittle", new Date()));
+        return spittles.stream().filter(s -> s.getId() == id).findFirst().orElse(null);
     }
 
     private List<Spittle> createSpittleList(int count) {
